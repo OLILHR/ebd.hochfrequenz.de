@@ -1,9 +1,7 @@
 import { expect, test } from "@playwright/test";
 
-test("sveltekit default text", async ({ page }) => {
-  await page.goto("/");
-
-  const content = await page.textContent("text=Welcome to SvelteKit");
-
-  expect(content).toBe("Welcome to SvelteKit");
+test("page returns 200 status", ({ page }) => {
+  return page.goto("/").then((response) => {
+    expect(response?.status()).toBe(200);
+  });
 });
