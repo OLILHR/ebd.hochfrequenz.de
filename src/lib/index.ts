@@ -1,1 +1,4 @@
-// place files you want to import through the `$lib` alias in this folder.
+// shared components
+export { default as IconLogo } from "./components/icon-logo.svelte";
+
+// features
