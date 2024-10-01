@@ -1,0 +1,43 @@
+{
+  "name": "sveltekit-static-template",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "format": "prettier '**/*.{svelte,js,jsx,ts,tsx,html,css,scss,json,yml,md}' --write",
+    "format:check": "prettier '**/*.{svelte,js,jsx,ts,tsx,html,css,scss,json,yml,md}' --check",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.2",
+    "@sveltejs/adapter-auto": "^3.2.5",
+    "@sveltejs/adapter-static": "^3.0.5",
+    "@sveltejs/kit": "^2.6.1",
+    "@sveltejs/vite-plugin-svelte": "^3.1.2",
+    "@types/node": "^22.6.1",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-svelte": "^2.44.1",
+    "playwright": "^1.47.1",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-svelte": "^3.2.7",
+    "sass": "^1.79.3",
+    "scss": "^0.2.4",
+    "svelte": "^4.2.19",
+    "svelte-check": "^4.0.2",
+    "tailwindcss": "^3.4.11",
+    "tslib": "^2.7.0",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.7"
+  },
+  "type": "module"
+}
