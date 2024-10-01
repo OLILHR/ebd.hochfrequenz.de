@@ -1,5 +1,10 @@
 <script>
   import "../app.scss";
+  import { Header } from "$lib";
 </script>
 
-<slot />
+<Header />
+
+<main>
+  <slot />
+</main>
