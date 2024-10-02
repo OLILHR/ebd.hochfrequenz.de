@@ -1,5 +1,6 @@
 <script>
   import "../app.scss";
+  import { base } from "$app/paths";
   import { Footer } from "$lib";
 </script>
 
@@ -16,7 +17,7 @@
       </h2>
       <h3 class="font-bold pb-2">Finde dein EBD</h3>
       <a
-        href="/ebd"
+        href="{base}/ebd"
         class="rounded-full bg-secondary text-white px-5 py-2 shadow-md inline-block no-underline"
       >
         Jetzt öffnen
