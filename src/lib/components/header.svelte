@@ -4,7 +4,7 @@
 
 <header class="bg-primary">
   <nav class="mx-auto flex items-center px-6 py-4" aria-label="Global">
-    <a href="/" title="landingpage" class="flex-none flex items-center">
+    <a href="/" title="landingpage" class="flex-none items-center">
       <IconLogo size={24} />
     </a>
     <span class="text-xl text-white flex items-center me-14"
