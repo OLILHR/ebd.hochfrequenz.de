@@ -2,7 +2,7 @@
   import { IconLogo } from "$lib";
 </script>
 
-<header class="bg-primary">
+<header class="bg-secondary">
   <nav class="mx-auto flex items-center px-6 py-4" aria-label="Global">
     <a href="/" title="landingpage" class="flex-none items-center">
       <IconLogo size={24} />
