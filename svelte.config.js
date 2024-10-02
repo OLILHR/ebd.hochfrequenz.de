@@ -11,7 +11,7 @@ const config = {
       fallback: "404.html",
       paths: {
         base:
-          process.env.NODE_ENV === "production" ? "/ebd.hochfrequenz.de" : "",
+          process.env.NODE_ENV === "development" ? "/ebd.hochfrequenz.de" : "",
       },
       precompress: false,
       strict: true,

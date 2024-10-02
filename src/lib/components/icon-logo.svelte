@@ -1,4 +1,5 @@
 <script>
+  import { base } from "$app/paths";
   export let size = 46;
 </script>
 
@@ -8,6 +9,6 @@
   style:height="{size}px"
   width={size}
   height={size}
-  src="/logo.png"
+  src="{base}/logo.png"
   alt="Hochfrequenz-Logo"
 />

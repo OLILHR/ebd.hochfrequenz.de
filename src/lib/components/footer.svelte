@@ -1,10 +1,11 @@
 <script>
+  import { base } from "$app/paths";
   import { IconLogo } from "$lib";
   export let background = "bg-secondary";
 </script>
 
 <footer class="flex justify-between items-center {background} px-6 py-2.5">
-  <a href="/" title="landingpage" class="flex-none items-center">
+  <a href="{base}/" title="landingpage" class="flex-none items-center">
     <IconLogo size={24} />
   </a>
   <span class="text-sm text-white flex items-center space-x-1">
