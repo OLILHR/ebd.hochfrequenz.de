@@ -1,7 +1,7 @@
 <div class="flex flex-col items-start mt-2 w-full">
   <select
     id="ebd-select"
-    class="rounded border-2 border-white bg-secondary py-2.5 px-2 focus:outline-0 w-full"
+    class="inline-block border-2 border-white rounded-lg bg-secondary py-3 ps-3 pe-8 focus:outline-0 w-full"
     placeholder="Bitte auswählen"
   >
     <option value="">Bitte auswählen</option>
