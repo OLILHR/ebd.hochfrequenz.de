@@ -1,5 +1,10 @@
 <script lang="ts">
-  export let formatVersions: string[] = [];
+  type FormattedVersion = {
+    code: string;
+    detailedFormatVersion: string;
+  };
+
+  export let formatVersions: FormattedVersion[] = [];
 </script>
 
 <div class="flex flex-col items-start mt-2 w-full">
@@ -9,7 +14,7 @@
   >
     <option value="">Bitte auswählen</option>
     {#each formatVersions as version}
-      <option value={version}>{version}</option>
+      <option value={version.code}>{version.detailedFormatVersion}</option>
     {/each}
   </select>
   <label
