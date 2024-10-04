@@ -1,5 +1,8 @@
-<script>
+<script lang="ts">
   import { FormatVersionSelect, EbdSelect } from "$lib";
+  import type { PageData } from "./$types";
+
+  export let data: PageData;
 </script>
 
 <div
@@ -15,7 +18,7 @@
 
   <div class="w-2/5 flex flex-col">
     <div class="mb-4 pb-8">
-      <FormatVersionSelect />
+      <FormatVersionSelect formatVersions={data.formatVersions} />
     </div>
     <div class="mt-4">
       <EbdSelect />
