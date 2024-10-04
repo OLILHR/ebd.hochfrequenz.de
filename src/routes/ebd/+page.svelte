@@ -14,10 +14,9 @@
   </div>
 
   <div class="w-2/5 flex flex-col">
-    <div class="mb-4">
+    <div class="mb-4 pb-8">
       <FormatVersionSelect />
     </div>
-    <div class="h-8"></div>
     <div class="mt-4">
       <EbdSelect />
     </div>

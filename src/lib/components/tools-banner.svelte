@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import { cubicOut } from "svelte/easing";
   import { fly } from "svelte/transition";
 
   let visible = false;
@@ -13,7 +14,7 @@
   {#if visible}
     <div
       class="flex flex-col items-center"
-      in:fly={{ x: -1000, duration: 1000, delay: 250 }}
+      in:fly={{ x: -500, duration: 1000, delay: 250, easing: cubicOut }}
     >
       <a
         href="https://ahb-tabellen.stage.hochfrequenz.de"
@@ -46,7 +47,7 @@
 
     <div
       class="flex flex-col items-center"
-      in:fly={{ x: -1000, duration: 1000, delay: 250 }}
+      in:fly={{ x: -500, duration: 1000, delay: 500, easing: cubicOut }}
     >
       <a
         href="https://bedingungsbaum.hochfrequenz.de"
@@ -82,7 +83,7 @@
 
     <div
       class="flex flex-col items-center"
-      in:fly={{ x: -1000, duration: 1000, delay: 250 }}
+      in:fly={{ x: -500, duration: 1250, delay: 750, easing: cubicOut }}
     >
       <a
         href="https://hochfrequenz.de/#fristenkalender"
