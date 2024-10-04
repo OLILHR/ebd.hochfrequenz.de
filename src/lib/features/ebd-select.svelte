@@ -8,7 +8,7 @@
   </select>
   <label
     for="ebd-select"
-    class="ml-3 -mt-14 pt-1 text-xs border-white rounded inline-block text-slate-500 text-[12px] bg-white px-1"
+    class="ml-3 -mt-14 text-xs border-white rounded inline-block text-slate-500 text-[12px] bg-white px-1"
   >
     EBD
   </label>
