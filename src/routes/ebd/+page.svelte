@@ -1,5 +1,24 @@
-<script>
+<script lang="ts">
+  import { base } from "$app/paths";
   import { FormatVersionSelect, EbdSelect } from "$lib";
+  import type { PageData } from "./$types";
+
+  export let data: PageData;
+
+  let selectedFormatVersion = "";
+  let ebds: string[] = [];
+
+  async function handleFormatVersionSelect(event: CustomEvent<string>) {
+    selectedFormatVersion = event.detail;
+    if (selectedFormatVersion) {
+      const response = await fetch(
+        `${base}/api/ebd?formatVersion=${selectedFormatVersion}`,
+      );
+      ebds = await response.json();
+    } else {
+      ebds = [];
+    }
+  }
 </script>
 
 <div
@@ -15,10 +34,14 @@
 
   <div class="w-2/5 flex flex-col">
     <div class="mb-4 pb-8">
-      <FormatVersionSelect />
+      <FormatVersionSelect
+        formatVersions={data.formatVersions}
+        selectedVersion={selectedFormatVersion}
+        on:select={handleFormatVersionSelect}
+      />
     </div>
     <div class="mt-4">
-      <EbdSelect />
+      <EbdSelect {ebds} disabled={!selectedFormatVersion} />
     </div>
   </div>
 </div>
