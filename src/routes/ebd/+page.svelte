@@ -1,8 +1,33 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import { FormatVersionSelect, EbdSelect } from "$lib";
   import type { PageData } from "./$types";
 
   export let data: PageData;
+
+  let selectedFormatVersion = data.selectedFormatVersion;
+  let ebds = data.ebds;
+
+  async function handleFormatVersionSelect(event: CustomEvent<string>) {
+    selectedFormatVersion = event.detail;
+    if (selectedFormatVersion) {
+      const response = await fetch(
+        `/api/ebd?formatVersion=${selectedFormatVersion}`,
+      );
+      ebds = await response.json();
+    } else {
+      ebds = [];
+    }
+  }
+
+  onMount(async () => {
+    if (selectedFormatVersion) {
+      const response = await fetch(
+        `/api/ebd?formatVersion=${selectedFormatVersion}`,
+      );
+      ebds = await response.json();
+    }
+  });
 </script>
 
 <div
@@ -18,10 +43,14 @@
 
   <div class="w-2/5 flex flex-col">
     <div class="mb-4 pb-8">
-      <FormatVersionSelect formatVersions={data.formatVersions} />
+      <FormatVersionSelect
+        formatVersions={data.formatVersions}
+        selectedVersion={selectedFormatVersion}
+        on:select={handleFormatVersionSelect}
+      />
     </div>
     <div class="mt-4">
-      <EbdSelect ebds={data.ebds} disabled={!data.selectedFormatVersion} />
+      <EbdSelect {ebds} disabled={!selectedFormatVersion} />
     </div>
   </div>
 </div>

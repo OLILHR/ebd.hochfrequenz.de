@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-  import { page } from "$app/stores";
+  import { createEventDispatcher } from "svelte";
 
   type FormatVersion = {
     code: string;
@@ -8,11 +7,12 @@
   };
 
   export let formatVersions: FormatVersion[] = [];
+  export let selectedVersion: string = "";
 
-  let selectedVersion = $page.url.searchParams.get("formatVersion") || "";
+  const dispatch = createEventDispatcher();
 
   function handleSelect() {
-    goto(`?formatVersion=${selectedVersion}`, { replaceState: true });
+    dispatch("select", selectedVersion);
   }
 </script>
 
