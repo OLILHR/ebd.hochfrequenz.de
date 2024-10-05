@@ -11,6 +11,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: "recursive"
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update submodules
+        run: |
+          git submodule update --init --recursive
+          git submodule update --remote --merge
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -24,8 +32,7 @@ jobs:
       - name: Build
         env:
           BASE_PATH: "/${{ github.event.repository.name }}"
-        run: |
-          npm run build
+        run: npm run build
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3

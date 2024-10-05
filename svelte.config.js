@@ -10,8 +10,10 @@ const config = {
       assets: "build",
       fallback: "404.html",
       paths: {
-        base:
-          process.env.NODE_ENV === "development" ? "/ebd.hochfrequenz.de" : "",
+        base: process.env.BASE_PATH || "",
+      },
+      files: {
+        assets: "static",
       },
       precompress: false,
       strict: true,

@@ -1,3 +1,3 @@
 [submodule "static/ebd"]
-	path = static/ebd
-	url = git@github.com:Hochfrequenz/machine-readable_entscheidungsbaumdiagramme.git
+    path = static/ebd
+    url = https://github.com/Hochfrequenz/machine-readable_entscheidungsbaumdiagramme.git
