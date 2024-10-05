@@ -21,7 +21,7 @@
       <FormatVersionSelect formatVersions={data.formatVersions} />
     </div>
     <div class="mt-4">
-      <EbdSelect />
+      <EbdSelect ebds={data.ebds} disabled={!data.selectedFormatVersion} />
     </div>
   </div>
 </div>

@@ -1,15 +1,26 @@
 <script lang="ts">
-  type FormattedVersion = {
+  import { goto } from "$app/navigation";
+  import { page } from "$app/stores";
+
+  type FormatVersion = {
     code: string;
     detailedFormatVersion: string;
   };
 
-  export let formatVersions: FormattedVersion[] = [];
+  export let formatVersions: FormatVersion[] = [];
+
+  let selectedVersion = $page.url.searchParams.get("formatVersion") || "";
+
+  function handleSelect() {
+    goto(`?formatVersion=${selectedVersion}`, { replaceState: true });
+  }
 </script>
 
 <div class="flex flex-col items-start mt-2 w-full">
   <select
     id="format-version-select"
+    bind:value={selectedVersion}
+    on:change={handleSelect}
     class="inline-block border-2 border-white rounded-lg bg-secondary py-3 ps-3 pe-8 focus:outline-0 w-full cursor-pointer"
   >
     <option value="">Bitte auswählen</option>
