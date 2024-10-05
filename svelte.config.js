@@ -10,10 +10,10 @@ const config = {
       assets: "build",
       fallback: "404.html",
       paths: {
-        base: process.env.BASE_PATH || ''
+        base: process.env.BASE_PATH || "",
       },
       files: {
-        assets: 'static'
+        assets: "static",
       },
       precompress: false,
       strict: true,
