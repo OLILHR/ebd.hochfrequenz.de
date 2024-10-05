@@ -1,33 +1,24 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { base } from "$app/paths";
   import { FormatVersionSelect, EbdSelect } from "$lib";
   import type { PageData } from "./$types";
 
   export let data: PageData;
 
-  let selectedFormatVersion = data.selectedFormatVersion;
-  let ebds = data.ebds;
+  let selectedFormatVersion = "";
+  let ebds: string[] = [];
 
   async function handleFormatVersionSelect(event: CustomEvent<string>) {
     selectedFormatVersion = event.detail;
     if (selectedFormatVersion) {
       const response = await fetch(
-        `/api/ebd?formatVersion=${selectedFormatVersion}`,
+        `${base}/api/ebd?formatVersion=${selectedFormatVersion}`,
       );
       ebds = await response.json();
     } else {
       ebds = [];
     }
   }
-
-  onMount(async () => {
-    if (selectedFormatVersion) {
-      const response = await fetch(
-        `/api/ebd?formatVersion=${selectedFormatVersion}`,
-      );
-      ebds = await response.json();
-    }
-  });
 </script>
 
 <div
