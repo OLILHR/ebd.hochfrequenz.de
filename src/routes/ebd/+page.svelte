@@ -1,23 +1,17 @@
 <script lang="ts">
-  import { base } from "$app/paths";
   import { FormatVersionSelect, EbdSelect } from "$lib";
   import type { PageData } from "./$types";
 
   export let data: PageData;
 
   let selectedFormatVersion = "";
-  let ebds: string[] = [];
+  let ebdList: string[] = [];
 
-  async function handleFormatVersionSelect(event: CustomEvent<string>) {
+  function handleFormatVersionSelect(event: CustomEvent<string>) {
     selectedFormatVersion = event.detail;
-    if (selectedFormatVersion) {
-      const response = await fetch(
-        `${base}/api/ebd?formatVersion=${selectedFormatVersion}`,
-      );
-      ebds = await response.json();
-    } else {
-      ebds = [];
-    }
+    ebdList = selectedFormatVersion
+      ? data.ebds[selectedFormatVersion] || []
+      : [];
   }
 </script>
 
@@ -41,7 +35,7 @@
       />
     </div>
     <div class="mt-4">
-      <EbdSelect {ebds} disabled={!selectedFormatVersion} />
+      <EbdSelect ebds={ebdList} disabled={!selectedFormatVersion} />
     </div>
   </div>
 </div>
