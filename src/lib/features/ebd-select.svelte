@@ -1,12 +1,23 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
+
   export let ebds: string[] = [];
   export let disabled: boolean = true;
+
+  let selectedEbd: string = "";
+  const dispatch = createEventDispatcher();
+
+  function handleSelect() {
+    dispatch("select", selectedEbd);
+  }
 </script>
 
 <div class="flex flex-col items-start mt-2 w-full relative">
   <div class="w-full" class:opacity-50={disabled}>
     <select
       id="ebd-select"
+      bind:value={selectedEbd}
+      on:change={handleSelect}
       {disabled}
       class="inline-block border-2 border-white rounded-lg bg-secondary py-3 ps-2 pe-8 focus:outline-0 w-full"
       class:cursor-pointer={!disabled}
