@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { base } from "$app/paths";
   import { FormatVersionSelect, EbdSelect } from "$lib";
   import type { PageData } from "./$types";
 
@@ -20,7 +21,7 @@
     selectedEbd = event.detail;
     if (selectedFormatVersion && selectedEbd) {
       const formattedEbd = selectedEbd.replace("_", "");
-      goto(`/ebd/${selectedFormatVersion}/${formattedEbd}`);
+      goto(`${base}/ebd/${selectedFormatVersion}/${formattedEbd}`);
     }
   }
 </script>
