@@ -1,7 +1,7 @@
 import { readdirSync } from "fs";
 import { join } from "path";
 
-export function getEbd(): Record<string, string[]> {
+export function getEbds(): Record<string, string[]> {
   const ebdPath = join(process.cwd(), "static", "ebd");
   const ebds: Record<string, string[]> = {};
 
