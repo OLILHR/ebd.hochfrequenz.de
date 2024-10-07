@@ -1,7 +1,12 @@
 <script>
   import "../../../../app.scss";
+  import { EbdFormHeader } from "$lib";
 </script>
 
-<main>
-  <slot />
-</main>
+<div class="flex flex-col hfill">
+  <EbdFormHeader />
+
+  <main class="flex-grow overflow-auto">
+    <slot />
+  </main>
+</div>
