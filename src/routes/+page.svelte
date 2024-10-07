@@ -1,14 +1,11 @@
 <script>
   import "../app.scss";
   import { base } from "$app/paths";
-  import { Footer } from "$lib";
   import { ToolsBanner } from "$lib";
 </script>
 
-<div class="min-h-screen flex flex-col">
-  <section
-    class="bg-secondary py-28 flex flex-grow items-center justify-center"
-  >
+<div class="flex flex-col h-full">
+  <section class="bg-secondary py-40 flex items-center justify-center">
     <div class="rounded-lg bg-tint p-12 shadow-md">
       <h1 class="text-2xl pb-5">Entscheidungsbaumdiagramme</h1>
       <h2
@@ -27,8 +24,7 @@
     </div>
   </section>
 
-  <section class="flex flex-col lg:flex-row bg-tint pb-10">
+  <section class="bg-tint flex-grow flex items-end">
     <ToolsBanner />
   </section>
-  <Footer background="bg-secondary" />
 </div>

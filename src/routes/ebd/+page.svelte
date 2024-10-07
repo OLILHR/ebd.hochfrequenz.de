@@ -1,7 +1,7 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { base } from "$app/paths";
-  import { FormatVersionSelect, EbdSelect } from "$lib";
+  import { EbdSelect, Header, FormatVersionSelect } from "$lib";
   import type { PageData } from "./$types";
 
   export let data: PageData;
@@ -26,8 +26,9 @@
   }
 </script>
 
+<Header />
 <div
-  class="container mx-auto h-full px-6 flex max-w-6xl justify-between items-center"
+  class="container mx-auto flex flex-1 max-w-6xl justify-between items-center"
 >
   <div class="w-3/5">
     <h2

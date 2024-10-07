@@ -10,7 +10,7 @@
   });
 </script>
 
-<div class="flex justify-evenly w-full p-5 pt-14">
+<div class="flex justify-evenly w-full p-5 pt-10">
   {#if visible}
     <div
       class="flex flex-col items-center"
