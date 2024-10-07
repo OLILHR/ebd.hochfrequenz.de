@@ -3,6 +3,8 @@
   import { IconLogo } from "$lib";
   import { EbdSelect } from "$lib";
   import { FormatVersionSelect } from "$lib";
+
+  export let disableEbdSelect = false;
 </script>
 
 <header class="bg-secondary">
@@ -19,7 +21,7 @@
         <FormatVersionSelect />
       </div>
       <div class="-mt-2 pl-5 w-1/3">
-        <EbdSelect />
+        <EbdSelect disabled={disableEbdSelect} />
       </div>
     </div>
   </nav>

@@ -4,7 +4,7 @@
 </script>
 
 <div class="flex flex-col hfill">
-  <EbdFormHeader />
+  <EbdFormHeader disableEbdSelect={false} />
 
   <main class="flex-grow overflow-auto">
     <slot />
