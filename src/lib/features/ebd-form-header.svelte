@@ -1,5 +1,6 @@
 <script lang="ts">
   import { base } from "$app/paths";
+  import { goto } from "$app/navigation";
   import { IconLogo, EbdSelect, FormatVersionSelect } from "$lib";
 
   type FormatVersion = {
@@ -15,7 +16,7 @@
   $: currentEbds = ebds[currentFormatVersion] || [];
   $: selectedEbd = selectMatchingEbd(currentEbd, currentEbds);
 
-  function selectMatchingEbd( // this method selects the EBD that matches the [ebd] URL parameter
+  function selectMatchingEbd(
     currentEbd: string,
     availableEbds: string[],
   ): string {
@@ -28,12 +29,28 @@
   }
 
   function handleFormatVersionSelect(event: CustomEvent<string>) {
-    currentFormatVersion = event.detail;
-    currentEbd = "";
+    const newFormatVersion = event.detail;
+    if (newFormatVersion !== currentFormatVersion) {
+      currentFormatVersion = newFormatVersion;
+      currentEbd = "";
+    }
   }
 
   function handleEbdSelect(event: CustomEvent<string>) {
-    currentEbd = event.detail;
+    const newEbd = event.detail;
+    if (newEbd !== currentEbd) {
+      currentEbd = newEbd;
+      updateUrl(currentFormatVersion, newEbd);
+    }
+  }
+
+  function updateUrl(formatVersion: string, ebd: string) {
+    const formattedEbd = ebd.replace(/_/g, "");
+    if (formatVersion && ebd) {
+      goto(`${base}/ebd/${formatVersion}/${formattedEbd}`);
+    } else if (formatVersion) {
+      goto(`${base}/ebd/${formatVersion}`);
+    }
   }
 </script>
 
