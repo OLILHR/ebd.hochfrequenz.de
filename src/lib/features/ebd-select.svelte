@@ -2,10 +2,10 @@
   import { createEventDispatcher } from "svelte";
 
   export let ebds: string[] = [];
-  export let disabled: boolean = true;
+  export let disabled: boolean = false;
+  export let selectedEbd: string = "";
 
-  let selectedEbd: string = "";
-  const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher<{ select: string }>();
 
   function handleSelect() {
     dispatch("select", selectedEbd);
