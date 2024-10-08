@@ -19,7 +19,7 @@
       bind:value={selectedEbd}
       on:change={handleSelect}
       {disabled}
-      class="inline-block border-2 border-white rounded-lg bg-secondary py-3 ps-2 pe-8 focus:outline-0 w-full"
+      class="inline-block border-2 border-white rounded-lg bg-secondary py-3 ps-2 pe-4 focus:outline-0 w-full"
       class:cursor-pointer={!disabled}
     >
       <option value="">Bitte auswählen</option>

@@ -1,6 +1,5 @@
 <script lang="ts">
   import { base } from "$app/paths";
-  import { goto } from "$app/navigation";
   import { IconLogo, EbdSelect, FormatVersionSelect } from "$lib";
 
   type FormatVersion = {
@@ -13,17 +12,15 @@
   export let currentFormatVersion = "";
   export let currentEbd = "";
 
-  let selectedFormatVersion = currentFormatVersion;
-  let selectedEbd = currentEbd;
-  $: currentEbds = ebds[selectedFormatVersion] || [];
+  $: currentEbds = ebds[currentFormatVersion] || [];
 
   function handleFormatVersionSelect(event: CustomEvent<string>) {
-    selectedFormatVersion = event.detail;
-    selectedEbd = "";
+    currentFormatVersion = event.detail;
+    currentEbd = "";
   }
 
   function handleEbdSelect(event: CustomEvent<string>) {
-    selectedEbd = event.detail;
+    currentEbd = event.detail;
   }
 </script>
 
@@ -32,22 +29,22 @@
     class="mx-auto my-1 flex items-center justify-between px-6 py-4"
     aria-label="Global"
   >
-    <div class="flex items-center w-3/4">
+    <div class="flex items-center w-4/5">
       <a href="{base}/" title="landingpage" class="flex-none items-center mr-4">
         <IconLogo size={24} />
       </a>
       <span class="text-xl text-white">EBD.HOCHFREQUENZ.DE</span>
-      <div class="-mt-12 pl-10 w-1/6">
+      <div class="-mt-12 pl-10 w-1/5">
         <FormatVersionSelect
           {formatVersions}
-          selectedVersion={selectedFormatVersion}
+          selectedVersion={currentFormatVersion}
           on:select={handleFormatVersionSelect}
         />
       </div>
       <div class="-mt-2 pl-5 w-1/3">
         <EbdSelect
           ebds={currentEbds}
-          {selectedEbd}
+          selectedEbd={currentEbd}
           on:select={handleEbdSelect}
         />
       </div>
