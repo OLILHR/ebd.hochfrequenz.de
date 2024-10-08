@@ -10,6 +10,10 @@
   function handleSelect() {
     dispatch("select", selectedEbd);
   }
+
+  $: if (!ebds.includes(selectedEbd)) {
+    selectedEbd = "";
+  }
 </script>
 
 <div class="flex flex-col items-start mt-2 w-full relative">

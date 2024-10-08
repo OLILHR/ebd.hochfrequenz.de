@@ -13,6 +13,19 @@
   export let currentEbd = "";
 
   $: currentEbds = ebds[currentFormatVersion] || [];
+  $: selectedEbd = selectMatchingEbd(currentEbd, currentEbds);
+
+  function selectMatchingEbd( // this method selects the EBD that matches the [ebd] URL parameter
+    currentEbd: string,
+    availableEbds: string[],
+  ): string {
+    const formattedCurrentEbd = currentEbd.replace(/[_-]/g, "").toLowerCase();
+    return (
+      availableEbds.find(
+        (ebd) => ebd.replace(/[_-]/g, "").toLowerCase() === formattedCurrentEbd,
+      ) || ""
+    );
+  }
 
   function handleFormatVersionSelect(event: CustomEvent<string>) {
     currentFormatVersion = event.detail;
@@ -44,7 +57,7 @@
       <div class="-mt-2 pl-5 w-1/3">
         <EbdSelect
           ebds={currentEbds}
-          selectedEbd={currentEbd}
+          {selectedEbd}
           on:select={handleEbdSelect}
         />
       </div>
