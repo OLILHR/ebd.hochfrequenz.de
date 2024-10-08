@@ -3,13 +3,14 @@
   import { EbdFormHeader } from "$lib";
   import { page } from "$app/stores";
 
-  $: ({ formatVersions } = $page.data);
+  $: ({ formatVersions, ebds } = $page.data);
   $: ({ formatVersion, ebd } = $page.params);
 </script>
 
 <div class="flex flex-col hfill">
   <EbdFormHeader
     {formatVersions}
+    {ebds}
     currentFormatVersion={formatVersion}
     currentEbd={ebd}
   />

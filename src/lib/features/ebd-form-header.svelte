@@ -24,9 +24,6 @@
 
   function handleEbdSelect(event: CustomEvent<string>) {
     selectedEbd = event.detail;
-    if (selectedFormatVersion && selectedEbd) {
-      goto(`${base}/ebd/${selectedFormatVersion}/${selectedEbd}`);
-    }
   }
 </script>
 
