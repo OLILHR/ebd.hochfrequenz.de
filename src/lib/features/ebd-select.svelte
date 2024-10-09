@@ -2,13 +2,17 @@
   import { createEventDispatcher } from "svelte";
 
   export let ebds: string[] = [];
-  export let disabled: boolean = true;
+  export let disabled: boolean = false;
+  export let selectedEbd: string = "";
 
-  let selectedEbd: string = "";
-  const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher<{ select: string }>();
 
   function handleSelect() {
     dispatch("select", selectedEbd);
+  }
+
+  $: if (!ebds.includes(selectedEbd)) {
+    selectedEbd = "";
   }
 </script>
 
@@ -19,7 +23,7 @@
       bind:value={selectedEbd}
       on:change={handleSelect}
       {disabled}
-      class="inline-block border-2 border-white rounded-lg bg-secondary py-3 ps-2 pe-8 focus:outline-0 w-full"
+      class="inline-block border-2 border-white rounded-lg bg-secondary py-3 ps-2 pe-4 focus:outline-0 w-full"
       class:cursor-pointer={!disabled}
     >
       <option value="">Bitte auswählen</option>
