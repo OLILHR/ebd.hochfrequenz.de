@@ -7,16 +7,14 @@
   $: ({ formatVersion, ebd } = $page.params);
 </script>
 
-<div class="flex flex-col min-h-screen">
+<div class="flex flex-col h-full">
   <EbdFormHeader
     {formatVersions}
     {ebds}
     currentFormatVersion={formatVersion}
     currentEbd={ebd}
   />
-  <main class="flex-grow flex flex-col justify-center items-center py-8">
-    <div class="w-11/12 max-w-[90vw] flex justify-center items-center">
-      <slot />
-    </div>
-  </main>
+  <div class="flex-grow overflow-hidden">
+    <slot />
+  </div>
 </div>

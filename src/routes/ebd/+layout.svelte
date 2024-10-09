@@ -2,6 +2,6 @@
   import "../../app.scss";
 </script>
 
-<main class="flex flex-col flex-grow hfill">
+<div class="flex flex-col flex-grow hfill">
   <slot />
-</main>
+</div>
