@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { page } from "$app/stores";
+  import { base } from "$app/paths";
 
   let svgContainer: HTMLDivElement;
   let svgContent = "";
@@ -9,18 +10,18 @@
 
   async function loadSvg() {
     const ebdFile = `E_${ebd.slice(1)}`;
-    const ebdPath = `/ebd/${formatVersion}/${ebdFile}.svg`;
+    const ebdPath = `${base}/ebd/${formatVersion}/${ebdFile}.svg`;
 
     try {
       const response = await fetch(ebdPath);
       if (!response.ok) {
-        throw new Error(`http error: ${response.status}`);
+        throw new Error(`HTTP error: ${response.status}`);
       }
       svgContent = await response.text();
     } catch (err) {
-      console.error(`error loading svg: ${err}`);
+      console.error(`error loading SVG: ${err}`);
       svgContent =
-        '<svg><text x="50" y="50">HIER FALLBACK ERROR MESSAGE.</text></svg>';
+        '<svg><text x="50" y="50" fill="red">Error loading SVG. Please check the console for details.</text></svg>';
     }
 
     // ensures SVGs will scale to fit the available space while maintaining their aspect ratio despite any preset dimensions
