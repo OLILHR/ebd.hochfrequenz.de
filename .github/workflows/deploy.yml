@@ -15,11 +15,6 @@ jobs:
           submodules: "recursive"
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update submodules
-        run: |
-          git submodule update --init --recursive
-          git submodule update --remote --merge
-
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
