@@ -80,7 +80,7 @@
       </div>
     </div>
     <div class="ml-auto">
-      <ExportButton />
+      <ExportButton {currentFormatVersion} {currentEbd} />
     </div>
   </nav>
 </header>
