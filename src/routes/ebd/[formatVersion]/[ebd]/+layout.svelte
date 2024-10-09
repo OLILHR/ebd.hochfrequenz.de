@@ -7,15 +7,14 @@
   $: ({ formatVersion, ebd } = $page.params);
 </script>
 
-<div class="flex flex-col hfill">
+<div class="flex flex-col h-full">
   <EbdFormHeader
     {formatVersions}
     {ebds}
     currentFormatVersion={formatVersion}
     currentEbd={ebd}
   />
-
-  <main class="flex-grow overflow-auto">
+  <div class="flex-grow overflow-hidden">
     <slot />
-  </main>
+  </div>
 </div>
