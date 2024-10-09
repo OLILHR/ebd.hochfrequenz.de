@@ -24,7 +24,7 @@
     try {
       const response = await fetch(ebdPath);
       if (!response.ok) {
-        throw new Error(`HTTP error: ${response.status}`);
+        throw new Error(`http error: ${response.status}`);
       }
       const svgContent = await response.text();
 
@@ -38,12 +38,12 @@
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     } catch (err) {
-      console.error(`error exporting SVG: ${err}`);
+      console.error(`error exporting svg: ${err}`);
     }
 
     cooldownTimer = setTimeout(() => {
       isExportReady = true;
-    }, 10000); // 10 seconds cooldown to prevent spamming the download button
+    }, 5000); // 5 seconds cooldown to prevent spamming the download button
   }
 </script>
 
