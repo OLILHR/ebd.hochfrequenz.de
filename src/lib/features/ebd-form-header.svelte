@@ -1,7 +1,7 @@
 <script lang="ts">
   import { base } from "$app/paths";
   import { goto } from "$app/navigation";
-  import { IconLogo, EbdSelect, FormatVersionSelect } from "$lib";
+  import { IconLogo, EbdSelect, ExportButton, FormatVersionSelect } from "$lib";
 
   type FormatVersion = {
     code: string;
@@ -78,6 +78,9 @@
           on:select={handleEbdSelect}
         />
       </div>
+    </div>
+    <div class="ml-auto">
+      <ExportButton {currentFormatVersion} {currentEbd} />
     </div>
   </nav>
 </header>
