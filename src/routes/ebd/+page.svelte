@@ -31,9 +31,7 @@
   class="container mx-auto flex flex-1 max-w-6xl justify-between items-center"
 >
   <div class="w-3/5">
-    <h2
-      class="border-b border-secondary inline-block pb-[12px] uppercase mt-12"
-    >
+    <h2 class="border-b border-secondary inline-block pb-[12px] uppercase">
       Entscheidungsbaumdiagramme - aber es sind actually Diagramme.
     </h2>
   </div>

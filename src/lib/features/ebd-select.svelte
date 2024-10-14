@@ -34,7 +34,7 @@
   </div>
   <label
     for="ebd-select"
-    class="absolute top-0 left-3 -translate-y-1/2 text-xs border-white rounded inline-block text-slate-500 text-[12px] bg-white px-1"
+    class="absolute top-0.5 left-3 -translate-y-1/2 text-xs border-white rounded inline-block text-slate-500 text-[12px] bg-white px-1"
   >
     EBD
   </label>
