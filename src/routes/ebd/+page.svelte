@@ -2,9 +2,11 @@
   import { goto } from "$app/navigation";
   import { base } from "$app/paths";
   import { EbdSelect, Header, FormatVersionSelect } from "$lib";
+  import { dynamicRoutes } from "../../server/router";
   import type { PageData } from "./$types";
 
   export let data: PageData;
+  $: ({ formatVersions, ebds } = $dynamicRoutes);
 
   let selectedFormatVersion = "";
   let selectedEbd = "";

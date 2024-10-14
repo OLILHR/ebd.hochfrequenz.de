@@ -2,6 +2,7 @@
   import { base } from "$app/paths";
   import { goto } from "$app/navigation";
   import { IconLogo, EbdSelect, ExportButton, FormatVersionSelect } from "$lib";
+  import { dynamicRoutes } from "../../server/router";
 
   type FormatVersion = {
     code: string;
@@ -15,6 +16,7 @@
 
   $: currentEbds = ebds[currentFormatVersion] || [];
   $: selectedEbd = selectMatchingEbd(currentEbd, currentEbds);
+  $: ({ formatVersions, ebds } = $dynamicRoutes);
 
   function selectMatchingEbd(
     currentEbd: string,

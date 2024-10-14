@@ -29,33 +29,14 @@ function formatVersion(version: string): FormatVersion {
 }
 
 export function getFormatVersions(): FormatVersion[] {
-  const ebdPaths = [
-    join(process.cwd(), "static", "ebd"), // submodule synced at ./static/ebd/
-    join(process.cwd(), "build", "ebd"), // submodule copied to ./build/ebd/ during build time
-  ];
-
-  for (const ebdPath of ebdPaths) {
-    try {
-      const dirs = readdirSync(ebdPath, { withFileTypes: true })
-        .filter((dir) => dir.isDirectory())
-        .map((dir) => dir.name);
-      return dirs
-        .map(formatVersion)
-        .sort((a, b) => b.code.localeCompare(a.code)); // descending order to show latest FV at the top
-    } catch (error) {
-      if (
-        error instanceof Error &&
-        "code" in error &&
-        error.code === "ENOENT"
-      ) {
-        // ignore expected error when preview falls back to ./build/ebd/
-        continue;
-      }
-      console.error(
-        `error loading format version directories from ${ebdPath}:`,
-        error,
-      );
-    }
+  const ebdPath = join(process.cwd(), "static", "ebd");
+  try {
+    return readdirSync(ebdPath, { withFileTypes: true })
+      .filter((dirent) => dirent.isDirectory())
+      .map((dirent) => formatVersion(dirent.name))
+      .sort((a, b) => b.code.localeCompare(a.code)); // descending order
+  } catch (error) {
+    console.error("No format version directories available.", error);
+    return [];
   }
-  return [];
 }
