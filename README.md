@@ -1,9 +1,9 @@
 # EBD.HOCHFREQUENZ.DE
 
-![Eslint status badge](https://github.com/OLILHR/sveltekit-static-template/workflows/Linting/badge.svg)
-![Type-Checking status badge](https://github.com/OLILHR/sveltekit-static-template/workflows/Type-Checking/badge.svg)
-![Prettier status badge](https://github.com/OLILHR/sveltekit-static-template/workflows/Formatting/badge.svg)
-![PlayWright status badge](https://github.com/OLILHR/sveltekit-static-template/workflows/E2E-Testing/badge.svg)
+![Eslint status badge](https://github.com/Hochfrequenz/ebd.hochfrequenz.de/workflows/Linting/badge.svg)
+![Type-Checking status badge](https://github.com/Hochfrequenz/ebd.hochfrequenz.de/workflows/Type-Checking/badge.svg)
+![Prettier status badge](https://github.com/Hochfrequenz/ebd.hochfrequenz.de/workflows/Formatting/badge.svg)
+![PlayWright status badge](https://github.com/Hochfrequenz/ebd.hochfrequenz.de/workflows/E2E-Testing/badge.svg)
 
 ### setting up development environment
 
