@@ -1,8 +1,14 @@
 <script>
   import "../app.scss";
   import { base } from "$app/paths";
-  import { ToolsBanner } from "$lib";
+  import { LoginButton, ToolsBanner } from "$lib";
 </script>
+
+<div class="relative">
+  <div class="absolute top-4 right-4 z-10">
+    <LoginButton />
+  </div>
+</div>
 
 <section class="bg-secondary flex-grow flex items-center justify-center">
   <div class="rounded-lg bg-tint p-12 shadow-md">
