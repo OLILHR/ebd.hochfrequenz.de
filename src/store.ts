@@ -1,28 +1,7 @@
-import { writable, derived, type Writable } from "svelte/store";
+import { writable } from "svelte/store";
+import type { User } from "@auth0/auth0-spa-js";
 
-interface User {
-  email?: string;
-  [key: string]: any;
-}
-
-interface Task {
-  user: string;
-  [key: string]: any;
-}
-
-export const isAuthenticated: Writable<boolean> = writable(false);
-export const user: Writable<User> = writable({});
-export const popupOpen: Writable<boolean> = writable(false);
-export const error: Writable<any> = writable();
-
-export const tasks: Writable<Task[]> = writable([]);
-
-export const user_tasks = derived([tasks, user], ([$tasks, $user]) => {
-  let logged_in_user_tasks: Task[] = [];
-
-  if ($user && $user.email) {
-    logged_in_user_tasks = $tasks.filter((task) => task.user === $user.email);
-  }
-
-  return logged_in_user_tasks;
-});
+export const isAuthenticated = writable<boolean>(false);
+export const user = writable<User | Record<string, never>>({});
+export const popupOpen = writable<boolean>(false);
+export const error = writable<string | null>(null);

@@ -1,12 +1,7 @@
 <script lang="ts">
   import { base } from "$app/paths";
   import { goto } from "$app/navigation";
-  import {
-    EbdSelect,
-    ExportButton,
-    FormatVersionSelect,
-    HochfrequenzIcon,
-  } from "$lib";
+  import { EbdSelect, ExportButton, FormatVersionSelect, IconLogo } from "$lib";
 
   type FormatVersion = {
     code: string;
@@ -66,7 +61,7 @@
   >
     <div class="flex items-center w-4/5">
       <a href="{base}/" title="landingpage" class="flex-none items-center mr-4">
-        <HochfrequenzIcon />
+        <IconLogo />
       </a>
       <span class="text-xl text-white">EBD.HOCHFREQUENZ.DE</span>
       <div class="-mt-12 pl-10 w-1/5">
