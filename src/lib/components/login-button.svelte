@@ -2,41 +2,27 @@
   import { onMount } from "svelte";
   import auth from "../../auth/authService";
   import { isAuthenticated, user } from "../../store";
-  import type { Auth0Client } from "@auth0/auth0-spa-js";
-
-  let client: Auth0Client;
 
   onMount(async () => {
-    client = await auth.createClient();
+    const client = await auth.createClient();
 
-    try {
-      if (window.location.search.includes("code=")) {
-        await client.handleRedirectCallback();
-      }
-    } catch (e) {}
-
-    const authenticated = await client.isAuthenticated();
-    isAuthenticated.set(authenticated);
-
-    if (authenticated) {
-      const userData = await client.getUser();
-      user.set(userData || {});
+    if (
+      window.location.search.includes("code=") ||
+      window.location.search.includes("error=")
+    ) {
+      await client.handleRedirectCallback();
+      window.history.replaceState({}, document.title, "/");
     }
+
+    await auth.checkAuth();
   });
 
   async function login() {
-    if (!client) return;
-    await auth.loginWithPopup(client);
-    isAuthenticated.set(await client.isAuthenticated());
-    const userData = await client.getUser();
-    user.set(userData || {});
+    await auth.loginWithPopup();
   }
 
   async function logout() {
-    if (!client) return;
-    await auth.logout(client);
-    user.set({});
-    isAuthenticated.set(false);
+    await auth.logout();
   }
 </script>
 
