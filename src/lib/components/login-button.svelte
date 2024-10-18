@@ -8,17 +8,17 @@
 
     if (
       window.location.search.includes("code=") ||
-      window.location.search.includes("error=")
+      window.location.search.includes("state=")
     ) {
-      await client.handleRedirectCallback();
-      window.history.replaceState({}, document.title, "/");
+      await auth.handleRedirectCallback();
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
 
     await auth.checkAuth();
   });
 
   async function login() {
-    await auth.loginWithPopup();
+    await auth.loginWithRedirect();
   }
 
   async function logout() {

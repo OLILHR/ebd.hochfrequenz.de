@@ -9,6 +9,9 @@ async function createClient(): Promise<Auth0Client> {
   auth0Client = await createAuth0Client({
     domain: config.domain,
     clientId: config.clientId,
+    authorizationParams: {
+      redirect_uri: window.location.origin,
+    },
     cacheLocation: "localstorage",
     useRefreshTokens: true,
   });
@@ -16,16 +19,21 @@ async function createClient(): Promise<Auth0Client> {
   return auth0Client;
 }
 
-async function loginWithPopup(options?: any): Promise<void> {
-  popupOpen.set(true);
+async function loginWithRedirect(): Promise<void> {
   try {
-    await auth0Client.loginWithPopup(options);
+    await auth0Client.loginWithRedirect();
   } catch (e) {
     console.error(e);
-  } finally {
-    popupOpen.set(false);
   }
-  await updateAuthStore();
+}
+
+async function handleRedirectCallback(): Promise<void> {
+  try {
+    await auth0Client.handleRedirectCallback();
+    await updateAuthStore();
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 async function logout(): Promise<void> {
@@ -63,7 +71,8 @@ async function checkAuth(): Promise<boolean> {
 
 const auth = {
   createClient,
-  loginWithPopup,
+  loginWithRedirect,
+  handleRedirectCallback,
   logout,
   updateAuthStore,
   checkAuth,
