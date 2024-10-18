@@ -1,7 +1,18 @@
-<script>
+<script lang="ts">
   import "../app.scss";
   import { base } from "$app/paths";
   import { LoginButton, ToolsBanner } from "$lib";
+  import { isAuthenticated } from "../store";
+  import auth from "../auth/authService";
+  import { goto } from "$app/navigation";
+
+  async function checkAuthentication() {
+    if ($isAuthenticated) {
+      goto(`${base}/ebd`);
+    } else {
+      await auth.loginWithRedirect();
+    }
+  }
 </script>
 
 <div class="relative">
@@ -19,12 +30,12 @@
       - aber es sind actually Diagramme.
     </h2>
     <div class="mt-10 flex justify-center">
-      <a
-        href="{base}/ebd"
+      <button
+        on:click={checkAuthentication}
         class="rounded-full bg-secondary text-white px-5 py-2 shadow-md inline-block no-underline transition-transform duration-300 ease-in-out hover:scale-110"
       >
         Jetzt öffnen
-      </a>
+      </button>
     </div>
   </div>
 </section>
