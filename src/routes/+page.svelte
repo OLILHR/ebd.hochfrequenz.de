@@ -14,7 +14,7 @@
   <div class="rounded-lg bg-tint p-12 shadow-md">
     <h1 class="text-2xl pb-5">Entscheidungsbaumdiagramme</h1>
     <h2
-      class="flex justify-center text-sm border-b border-secondary pb-[12px] mb-[20px] uppercase"
+      class="flex justify-center text-sm border-b border-secondary pb-3 mb-5 uppercase"
     >
       - aber es sind actually Diagramme.
     </h2>

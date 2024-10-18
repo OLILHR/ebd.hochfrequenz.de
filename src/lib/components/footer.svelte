@@ -1,6 +1,6 @@
 <script>
   import { base } from "$app/paths";
-  import { IconLogo } from "$lib";
+  import { HochfrequenzIcon } from "$lib";
   export let background = "bg-secondary";
 
   let currentYear = new Date().getFullYear();
@@ -8,7 +8,7 @@
 
 <footer class="flex justify-between items-center {background} px-6 py-2.5">
   <a href="{base}/" title="landingpage" class="flex-none items-center">
-    <IconLogo size={24} />
+    <HochfrequenzIcon size={24} />
   </a>
   <div class="flex items-center text-sm text-white space-x-1">
     <p class="flex items-center flex-wrap">
